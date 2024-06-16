@@ -15,7 +15,7 @@ class Board
     int gameBoard[5][5];
     Edge boardedge[72]; // All the edgs at the start dont have an owner
     Vertex boardVertex[54]; // All the vertex at the start dont have an owner
-    Meshushe meshushe[19] = {}; // All the meshushe at the start dont have an owner
+    Meshushe meshushe[19]; // All the meshushe at the start dont have an owner
     
     Board() : listBoardVertex(54), listBoardEdge(72){
         initialize();

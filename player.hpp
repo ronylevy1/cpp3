@@ -40,7 +40,7 @@ class Player{
         void throwHalf(std::vector<int> cardsBuy); // Throw half of the cards
         std::string getColor() const;
         
-        std::vector<Vertex> placeSettlement(Board* board, int index); // Place the settelment on the board
+        std::vector<Vertex> placeSettlement(Board& board, int index); // Place the settelment on the board
         std::vector<Vertex> placeCity(Board& board, int index); // Place the city on the board
         std::vector<Edge> placeRoad(Board& board, int index); // Place the road on the board
 

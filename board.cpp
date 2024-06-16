@@ -57,7 +57,7 @@ void Board::printBoard() {
 }
 
 void Board::initialize(){
-    int numbers[19] = {10,2,9,12,6,4,10,9,11,7,3,8,8,3,4,5,5,6,11}; // The arrangement of numbers on the board is the same, but the order of the resources is the one that changes
+    // int numbers[19] = {10,2,9,12,6,4,10,9,11,7,3,8,8,3,4,5,5,6,11}; // The arrangement of numbers on the board is the same, but the order of the resources is the one that changes
     std::string resource[19] = {"stone","sheep","wood", "wheat","brick","sheep","brick","wheat","wood", "desert", "wood", "stone","wood", "stone","wheat", "sheep", "brick", "wheat", "sheep"};
     // להגדיר כל משושה עם צלעות וקודקודים לפי המספרים והמשאבים שעליה
    
@@ -69,97 +69,97 @@ void Board::initialize(){
     Vertex vertices2[6] = {
         Vertex(2), Vertex(3), Vertex(4), Vertex(10), Vertex(11), Vertex(12)
     };
-    meshushe[0] = mesh1;
-    // Meshushe mesh2(2,"sheep",vertices2);
-    // Vertex vertices3[6] = {
-    //     Vertex(4), Vertex(5), Vertex(6), Vertex(12), Vertex(13), Vertex(14)
-    // };
-    // Meshushe mesh3(9,"wood",vertices3);
-    // Vertex vertices4[6] = {
-    //     Vertex(7), Vertex(8), Vertex(9), Vertex(17), Vertex(18), Vertex(19)
-    // };
-    // Meshushe mesh4(12,"wheat",vertices4);
-    // Vertex vertices5[6] = {
-    //     Vertex(9), Vertex(10), Vertex(11), Vertex(19), Vertex(20), Vertex(21)
-    // };
-    // Meshushe mesh5(6,"brick",vertices5);
-    // Vertex vertices6[6] = {
-    //     Vertex(11), Vertex(12), Vertex(13), Vertex(21), Vertex(22), Vertex(23)
-    // };
-    // Meshushe mesh6(4,"sheep",vertices6);
-    // Vertex vertices7[6] = {
-    //     Vertex(13), Vertex(14), Vertex(15), Vertex(23), Vertex(24), Vertex(25)
-    // };
-    // Meshushe mesh7(10,"brick",vertices7);
-    // Vertex vertices8[6] = {
-    //     Vertex(16), Vertex(17), Vertex(18), Vertex(27), Vertex(28), Vertex(29)
-    // };
-    // Meshushe mesh8(9,"wheat",vertices8);
-    // Vertex vertices9[6] = {
-    //     Vertex(18), Vertex(19), Vertex(20), Vertex(29), Vertex(30), Vertex(31)
-    // };
-    // Meshushe mesh9(11,"wood",vertices9);
-    // Vertex vertices10[6] = {
-    //     Vertex(20), Vertex(21), Vertex(22), Vertex(31), Vertex(32), Vertex(33)
-    // };
-    // Meshushe mesh10(7,"desert",vertices10);
-    // Vertex vertices11[6] = {
-    //     Vertex(22), Vertex(23), Vertex(24), Vertex(33), Vertex(34), Vertex(35)
-    // };
-    // Meshushe mesh11(3,"wood",vertices11);
-    // Vertex vertices12[6] = {
-    //     Vertex(24), Vertex(25), Vertex(26), Vertex(35), Vertex(36), Vertex(37)
-    // };
-    // Meshushe mesh12(8,"rock",vertices12);
-    // Vertex vertices13[6] = {
-    //     Vertex(28), Vertex(29), Vertex(30), Vertex(38), Vertex(39), Vertex(40)
-    // };
-    // Meshushe mesh13(8,"wood",vertices13);
-    // Vertex vertices14[6] = {
-    //     Vertex(30), Vertex(31), Vertex(32), Vertex(40), Vertex(41), Vertex(42)
-    // };
-    // Meshushe mesh14(3,"rock",vertices14);
-    // Vertex vertices15[6] = {
-    //     Vertex(32), Vertex(33), Vertex(34), Vertex(42), Vertex(43), Vertex(44)
-    // };
-    // Meshushe mesh15(4,"wheat",vertices15);
-    // Vertex vertices16[6] = {
-    //     Vertex(34), Vertex(35), Vertex(36), Vertex(44), Vertex(45), Vertex(46)
-    // };
-    // Meshushe mesh16(5,"sheep",vertices16);
-    // Vertex vertices17[6] = {
-    //     Vertex(39), Vertex(40), Vertex(41), Vertex(47), Vertex(48), Vertex(49)
-    // };
-    // Meshushe mesh17(5,"brick",vertices17);
-    // Vertex vertices18[6] = {
-    //     Vertex(41), Vertex(42), Vertex(43), Vertex(49), Vertex(50), Vertex(51)
-    // };
-    // Meshushe mesh18(6,"wheat",vertices18);
-    // Vertex vertices19[6] = {
-    //     Vertex(43), Vertex(44), Vertex(45), Vertex(51), Vertex(52), Vertex(53)
-    // };
-    // Meshushe mesh19(11,"sheep",vertices19);
-
-
     // meshushe[0] = mesh1;
-    // meshushe[1] = mesh2;
-    // meshushe[2] = mesh3;
-    // meshushe[3] = mesh4;
-    // meshushe[4] = mesh5;
-    // meshushe[5] = mesh6;
-    // meshushe[6] = mesh7;
-    // meshushe[7] = mesh8;
-    // meshushe[8] = mesh9;
-    // meshushe[9] = mesh10;
-    // meshushe[10] = mesh11;
-    // meshushe[11] = mesh12;
-    // meshushe[12] = mesh13;
-    // meshushe[13] = mesh14;
-    // meshushe[14] = mesh15;
-    // meshushe[15] = mesh16;
-    // meshushe[16] = mesh17;
-    // meshushe[17] = mesh18;
-    // meshushe[18] = mesh19;
+    Meshushe mesh2(2,"sheep",vertices2);
+    Vertex vertices3[6] = {
+        Vertex(4), Vertex(5), Vertex(6), Vertex(12), Vertex(13), Vertex(14)
+    };
+    Meshushe mesh3(9,"wood",vertices3);
+    Vertex vertices4[6] = {
+        Vertex(7), Vertex(8), Vertex(9), Vertex(17), Vertex(18), Vertex(19)
+    };
+    Meshushe mesh4(12,"wheat",vertices4);
+    Vertex vertices5[6] = {
+        Vertex(9), Vertex(10), Vertex(11), Vertex(19), Vertex(20), Vertex(21)
+    };
+    Meshushe mesh5(6,"brick",vertices5);
+    Vertex vertices6[6] = {
+        Vertex(11), Vertex(12), Vertex(13), Vertex(21), Vertex(22), Vertex(23)
+    };
+    Meshushe mesh6(4,"sheep",vertices6);
+    Vertex vertices7[6] = {
+        Vertex(13), Vertex(14), Vertex(15), Vertex(23), Vertex(24), Vertex(25)
+    };
+    Meshushe mesh7(10,"brick",vertices7);
+    Vertex vertices8[6] = {
+        Vertex(16), Vertex(17), Vertex(18), Vertex(27), Vertex(28), Vertex(29)
+    };
+    Meshushe mesh8(9,"wheat",vertices8);
+    Vertex vertices9[6] = {
+        Vertex(18), Vertex(19), Vertex(20), Vertex(29), Vertex(30), Vertex(31)
+    };
+    Meshushe mesh9(11,"wood",vertices9);
+    Vertex vertices10[6] = {
+        Vertex(20), Vertex(21), Vertex(22), Vertex(31), Vertex(32), Vertex(33)
+    };
+    Meshushe mesh10(7,"desert",vertices10);
+    Vertex vertices11[6] = {
+        Vertex(22), Vertex(23), Vertex(24), Vertex(33), Vertex(34), Vertex(35)
+    };
+    Meshushe mesh11(3,"wood",vertices11);
+    Vertex vertices12[6] = {
+        Vertex(24), Vertex(25), Vertex(26), Vertex(35), Vertex(36), Vertex(37)
+    };
+    Meshushe mesh12(8,"rock",vertices12);
+    Vertex vertices13[6] = {
+        Vertex(28), Vertex(29), Vertex(30), Vertex(38), Vertex(39), Vertex(40)
+    };
+    Meshushe mesh13(8,"wood",vertices13);
+    Vertex vertices14[6] = {
+        Vertex(30), Vertex(31), Vertex(32), Vertex(40), Vertex(41), Vertex(42)
+    };
+    Meshushe mesh14(3,"rock",vertices14);
+    Vertex vertices15[6] = {
+        Vertex(32), Vertex(33), Vertex(34), Vertex(42), Vertex(43), Vertex(44)
+    };
+    Meshushe mesh15(4,"wheat",vertices15);
+    Vertex vertices16[6] = {
+        Vertex(34), Vertex(35), Vertex(36), Vertex(44), Vertex(45), Vertex(46)
+    };
+    Meshushe mesh16(5,"sheep",vertices16);
+    Vertex vertices17[6] = {
+        Vertex(39), Vertex(40), Vertex(41), Vertex(47), Vertex(48), Vertex(49)
+    };
+    Meshushe mesh17(5,"brick",vertices17);
+    Vertex vertices18[6] = {
+        Vertex(41), Vertex(42), Vertex(43), Vertex(49), Vertex(50), Vertex(51)
+    };
+    Meshushe mesh18(6,"wheat",vertices18);
+    Vertex vertices19[6] = {
+        Vertex(43), Vertex(44), Vertex(45), Vertex(51), Vertex(52), Vertex(53)
+    };
+    Meshushe mesh19(11,"sheep",vertices19);
+
+
+    meshushe[0] = mesh1;
+    meshushe[1] = mesh2;
+    meshushe[2] = mesh3;
+    meshushe[3] = mesh4;
+    meshushe[4] = mesh5;
+    meshushe[5] = mesh6;
+    meshushe[6] = mesh7;
+    meshushe[7] = mesh8;
+    meshushe[8] = mesh9;
+    meshushe[9] = mesh10;
+    meshushe[10] = mesh11;
+    meshushe[11] = mesh12;
+    meshushe[12] = mesh13;
+    meshushe[13] = mesh14;
+    meshushe[14] = mesh15;
+    meshushe[15] = mesh16;
+    meshushe[16] = mesh17;
+    meshushe[17] = mesh18;
+    meshushe[18] = mesh19;
     // // Define the resources of every mesh
 
     

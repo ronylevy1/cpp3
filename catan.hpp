@@ -8,13 +8,10 @@ class Catan{
     private:
     Player players[3]; // The game for 3 players
     //Meshushe meshushe[19];
-    Board* gameBoard;
+    Board gameBoard;
 
     public:
-    Catan(const Player& p1, const Player& p2, const Player& p3) : players{p1, p2, p3} {
-        gameBoard->initialize();
-    }
-
+    Catan(const Player& p1, const Player& p2, const Player& p3) : players{p1, p2, p3} {gameBoard.initialize();}
 
     // Catan(const Player& p1, const Player& p2, const Player& p3) : gameBoard() {
     //     players[0] = p1;
@@ -35,11 +32,11 @@ class Catan{
         return players[index];
     }
 
-    // void setBoard(const Board& board) {
-    // gameBoard = board;
-    // }
+    void setBoard(const Board& board) {
+    gameBoard = board;
+    }
 
-    Board* getBoard() {
+    Board& getBoard() {
         return gameBoard;
     }
     void ChooseStartingPlayer();

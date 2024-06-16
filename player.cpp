@@ -172,8 +172,9 @@ std::string Player::getColor() const {
     return playerName;
 }
 
-std::vector<Vertex> Player::placeSettlement(Board* board, int index){ //not good
-    board->setVertex(index); // Set the vertex as a settlement
+std::vector<Vertex> Player::placeSettlement(Board& board, int index){ //not good
+    board.setVertex(index); // Set the vertex as a settlement
+    std::cout<<board.boardVertex[index].owner<<"hello ";
     settelmentBuy.push_back(index); // Add the settlement to the list of settlements
     pointsOfPlayer += 1; // Add a point to the player
     resources.brick -= 1; // Deduct the required resources for placing a settlement
