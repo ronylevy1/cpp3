@@ -6,7 +6,6 @@ class Edge{
     private:
         int id; // Every edge has a number
         std::string resourceType; // Every edge has a resource type
-        std::string color; // The color of the edge
 
     public:
         std::vector<int> edge_neighbor_edge; // Each edge has neighbor edge
@@ -19,14 +18,8 @@ class Edge{
 
         void placeRoad(); // Place a road
 
-        void setColor(std::string color); // Set the color of the edge
-        std::string getColor() const; // Get the color of the edge
-
-
         void setId(int edgeId); // Set the id of the edge
         int getId() const; // Get the id of the edge
-
-        std::string getResourceType() const; // Get the resource type
 
     Edge() {}
     Edge(int id){

@@ -57,19 +57,15 @@ void Board::printBoard() {
 }
 
 void Board::initialize(){
-    // int numbers[19] = {10,2,9,12,6,4,10,9,11,7,3,8,8,3,4,5,5,6,11}; // The arrangement of numbers on the board is the same, but the order of the resources is the one that changes
     std::string resource[19] = {"stone","sheep","wood", "wheat","brick","sheep","brick","wheat","wood", "desert", "wood", "stone","wood", "stone","wheat", "sheep", "brick", "wheat", "sheep"};
-    // להגדיר כל משושה עם צלעות וקודקודים לפי המספרים והמשאבים שעליה
-   
-
+    // Define the meshushe of the board
     Vertex vertices1[6] = {
         Vertex(0), Vertex(1), Vertex(2), Vertex(8), Vertex(9), Vertex(10)
     };
-    Meshushe mesh1(10,"rock",vertices1);
+    Meshushe mesh1(10,"stone",vertices1);
     Vertex vertices2[6] = {
         Vertex(2), Vertex(3), Vertex(4), Vertex(10), Vertex(11), Vertex(12)
     };
-    // meshushe[0] = mesh1;
     Meshushe mesh2(2,"sheep",vertices2);
     Vertex vertices3[6] = {
         Vertex(4), Vertex(5), Vertex(6), Vertex(12), Vertex(13), Vertex(14)
@@ -110,7 +106,7 @@ void Board::initialize(){
     Vertex vertices12[6] = {
         Vertex(24), Vertex(25), Vertex(26), Vertex(35), Vertex(36), Vertex(37)
     };
-    Meshushe mesh12(8,"rock",vertices12);
+    Meshushe mesh12(8,"stone",vertices12);
     Vertex vertices13[6] = {
         Vertex(28), Vertex(29), Vertex(30), Vertex(38), Vertex(39), Vertex(40)
     };
@@ -118,7 +114,7 @@ void Board::initialize(){
     Vertex vertices14[6] = {
         Vertex(30), Vertex(31), Vertex(32), Vertex(40), Vertex(41), Vertex(42)
     };
-    Meshushe mesh14(3,"rock",vertices14);
+    Meshushe mesh14(3,"stone",vertices14);
     Vertex vertices15[6] = {
         Vertex(32), Vertex(33), Vertex(34), Vertex(42), Vertex(43), Vertex(44)
     };
@@ -140,7 +136,6 @@ void Board::initialize(){
     };
     Meshushe mesh19(11,"sheep",vertices19);
 
-
     meshushe[0] = mesh1;
     meshushe[1] = mesh2;
     meshushe[2] = mesh3;
@@ -160,10 +155,7 @@ void Board::initialize(){
     meshushe[16] = mesh17;
     meshushe[17] = mesh18;
     meshushe[18] = mesh19;
-    // // Define the resources of every mesh
-
     
-
 }
 
 
@@ -447,40 +439,12 @@ void Board::placeSettlement(int vertexIndex){
     }
 }
 
-// void Board::placeSettlement(int vertexIndex){
-//     boardVertex[vertexIndex].placeSettlement();
-// }
-
 void Board::placeCity(int vertexIndex){
     boardVertex[vertexIndex].placeCity();
 }
 
 void Board::placeRoad(int edgeIndex){
     boardedge[edgeIndex].placeRoad();
-}
-
-void Board::setPointState(int vertexIndex, std::string color){
-    boardVertex[vertexIndex].setColor(color);
-}
-
-void Board::setRoadState(int edgeIndex, std::string color){
-    boardedge[edgeIndex].setColor(color);
-}
-
-void Board::setSettlementState(int vertexIndex, std::string color){
-    boardVertex[vertexIndex].setColor(color);
-}
-void Board::setCityState(int vertexIndex, std::string color){
-    boardVertex[vertexIndex].setColor(color);
-}
-
-
-void Board::setColor(int vertexIndex, std::string color){
-    boardVertex[vertexIndex].setColor(color);
-}
-
-void Board::setVertex(int placeNum, std::string color){
-    boardVertex[placeNum].setColor(color);
 }
 
 void Board::setVertex(int placeNum){
@@ -491,71 +455,3 @@ void Board::setEdge(int placeNum){
     boardedge[placeNum].owner = 1;
 }
 
-
- // int mesh1[6] = {0,1,2,8,9,10};
-    // int mesh2[6] = {2,3,4,10,11,12};
-    // int mesh3[6] = {4,5,6,12,13,14};
-    // int mesh4[6] = {7,8,9,17,18,19};
-    // int mesh5[6] = {9,10,11,19,20,21};
-    // int mesh6[6] = {11,12,13,21,22,23};
-    // int mesh7[6] = {13,14,15,23,24,25};
-    // int mesh8[6] = {16,17,18,27,28,29};
-    // int mesh9[6] = {18,19,20,29,30,31};
-    // int mesh10[6] = {20,21,22,31,32,33};
-    // int mesh11[6] = {22,23,24,33,34,35};
-    // int mesh12[6] = {24,25,26,35,36,37};
-    // int mesh13[6] = {28,29,30,38,39,40};
-    // int mesh14[6] = {30,31,32,40,41,42};
-    // int mesh15[6] = {32,33,34,42,43,44};
-    // int mesh16[6] = {34,35,36,44,45,46};
-    // int mesh17[6] = {39,40,41,47,48,49};
-    // int mesh18[6] = {41,42,43,49,50,51};
-    // int mesh19[6] = {43,44,45,51,52,53};
-
-// void Board::printBoard() {
-//     std::cout << "                v:1          v:3          v:5" << std::endl;
-//     std::cout << "               /   \\       /    \\       /     \\" << std::endl;
-//     std::cout << "            e:0     e:1   e:2    e:3  e:4     e:5" << std::endl;
-//     std::cout << "             /        \\  /        \\   /         \\" << std::endl;
-//     std::cout << "           v:0         v:2         v:4          v:6" << std::endl;
-//     std::cout << "            |           |           |            |" << std::endl;
-//     std::cout << "           e:6  stone   e:7  sheep  e:8   wood   e:9" << std::endl;
-//     std::cout << "            |    10     |     2     |     9      |" << std::endl;
-//     std::cout << "           v:8         v:10        v:12         v:14" << std::endl;
-//     std::cout << "          /  \\       /   \\        /   \\        /    \\" << std::endl;
-//     std::cout << "      e:10   e:11  e:12   e:13  e:14   e:15  e:16   e:17" << std::endl;
-//     std::cout << "       /        \\   /       \\   /        \\  /         \\" << std::endl;
-//     std::cout << "     v:7         v:9         v:11         v:13        v:15" << std::endl;
-//     std::cout << "      |           |           |            |           |" << std::endl;
-//     std::cout << "     e:18  wheat e:19 brick  e:20  sheep  e:21  brick e:22" << std::endl;
-//     std::cout << "      |     12    |     6     |      4     |     10    |" << std::endl;
-//     std::cout << "     v:17        v:19        v:21        v:23         v:25" << std::endl;
-//     std::cout << "    /   \\       /   \\      /    \\       /    \\       /   \\" << std::endl;
-//     std::cout << " e:23  e:24  e:25   e:26  e:27  e:28  e:29   e:30  e:31  e:32" << std::endl;
-//     std::cout << "  /       \\  /        \\  /        \\  /         \\  /        \\" << std::endl;
-//     std::cout << "v:16       v:18        v:20       v:22         v:24       v:26" << std::endl;
-//     std::cout << " |          |           |          |            |           |" << std::endl;
-//     std::cout << "e:33 wheat e:34  wood  e:35  🏜   e:36   wood  e:37  stone  e:38" << std::endl;
-//     std::cout << " |     9    |     11    |          |      3     |     8     |" << std::endl;
-//     std::cout << "v:27       v:29        v:31       v:33         v:35        v:37" << std::endl;
-//     std::cout << "  \\      /   \\       /    \\      /    \\       /   \\       /" << std::endl;
-//     std::cout << " e:39  e:40  e:41   e:42  e:43  e:44  e:45  e:46   e:47  e:48" << std::endl;
-//     std::cout << "    \\  /        \\  /         \\ /         \\  /        \\  /" << std::endl;
-//     std::cout << "     v:28       v:30         v:32        v:34         v:36" << std::endl;
-//     std::cout << "      |           |           |           |            |" << std::endl;
-//     std::cout << "     e:49  wood  e:50  stone  e:51  wheat e:52  sheep  e:53" << std::endl;
-//     std::cout << "      |     8     |     3     |      4    |      5     |" << std::endl;
-//     std::cout << "     v:38        v:40        v:42        v:44         v:46" << std::endl;
-//     std::cout << "       \\        /   \\       /   \\        /   \\        /" << std::endl;
-//     std::cout << "      e:54   e:55   e:56  e:57  e:58  e:59  e:60   e:61" << std::endl;
-//     std::cout << "         \\   /        \\   /        \\   /        \\   /" << std::endl;
-//     std::cout << "          v:39         v:41         v:43         v:45" << std::endl;
-//     std::cout << "           |            |            |            |" << std::endl;
-//     std::cout << "          e:62  brick  e:63  wheat  e:64  sheep  e:65" << std::endl;
-//     std::cout << "           |      5     |      6     |     11     |" << std::endl;
-//     std::cout << "          v:47         v:49         v:51         v:53" << std::endl;
-//     std::cout << "           \\          /   \\        /    \\        /" << std::endl;
-//     std::cout << "           e:66     e:67  e:68   e:69   e:70   e:71" << std::endl;
-//     std::cout << "              \\     /        \\   /        \\   /" << std::endl;
-//     std::cout << "                v:48          v:50         v:52" << std::endl;
-// }

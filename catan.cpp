@@ -1,6 +1,10 @@
 #include <iostream>
 #include "catan.hpp"
 
+Catan::Catan(const Player& p1, const Player& p2, const Player& p3) : players{p1, p2, p3} {
+    gameBoard.initialize();
+}
+
 void Catan::ChooseStartingPlayer(){
     std::cout << "The starting player is : " <<  firstPlayer() << std::endl;
 }

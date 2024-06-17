@@ -7,8 +7,6 @@ class Vertex{
     int whatPoint = 0; // If 0 - empth. if 1 - settlement. if 2 - city
     std::string resourceType;
     int id; // Every vertex has an id
-    std::string color; // The color of the vertex
-
 
     public:
         int numOfPoints; // Each vertex can have between 0 and 2 points
@@ -27,7 +25,6 @@ class Vertex{
         void placeSettlement(); // Place a settlement
         void placeCity(); // Place a city
 
-        void setColor(std::string color); // Set the color of the vertex
         void setId(int vertexId); // Set the id of the vertex
         int getId() const; // Get the id of the vertex
 
@@ -36,6 +33,7 @@ class Vertex{
         Vertex() {}
         Vertex(int value){
             whatVer = value;
+            id = value;
         }
         Vertex(int vertexId,int numOfPoints, const std::vector<int>& vertexNeighbors, const std::vector<int>& edgeNeighbors, bool isEmpty, int owner):
             id(vertexId), numOfPoints(numOfPoints), vertex_neighbor_vertex(vertexNeighbors), vertex_neighbor_edge(edgeNeighbors), isEmpty(isEmpty), owner(owner) {
