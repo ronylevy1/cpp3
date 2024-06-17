@@ -19,27 +19,27 @@ void Player::rollDice(std::vector<Player*>& players, Board& board) {
 
     // Go over all the meshushe
     for (int i = 0; i < 19; i++) {
-        if (board.meshushe[i].idMesh == rolledNumber) {
-            for (Player* tempPlayer : players) {
-                // Check if the player has a settlement on any vertex of the current meshushe
-                bool hasSettlement = false;
+        if (board.meshushe[i].idMesh == rolledNumber) { // Check if the meshushe has the same id as the rolled number
+            for (Player* tempPlayer : players) {       // Go over all the players
+                bool hasSettlement = false; 
                 bool hasCity = false;
-                for (int index = 0; index < 6; index++) {
-                    for (int settlement : tempPlayer->settelmentBuy) {
-                        if (settlement == board.meshushe[i].vertex[index].getId()) {
+                for (int index = 0; index < 6; index++) { // Go over all the vertexes of the meshushe
+                    for (int settlement : tempPlayer->settelmentBuy) { 
+                        if (settlement == board.meshushe[i].vertex[index].getId()) { // Check if the player has a settlement on the vertex
                             hasSettlement = true;
                             break;
                         }
                     }
-                    for (int city : tempPlayer->cityBuy) {
+                    for (int city : tempPlayer->cityBuy) { // Check if the player has a city on the vertex
                         if (city == board.meshushe[i].vertex[index].getId()) {
                             hasCity = true;
                             break;
                         }
                     }
 
-                    if (hasSettlement) {
+                    if (hasSettlement) { // If the player has a settlement on the vertex
                         std::string resourceType = board.meshushe[i].resourceType;
+                        // Add the resource to the player
                         if (resourceType == "wood") {
                             tempPlayer->resources.wood += 1;
                             hasSettlement = false;
@@ -58,8 +58,9 @@ void Player::rollDice(std::vector<Player*>& players, Board& board) {
                         }
                     }
 
-                    if (hasCity) {
+                    if (hasCity) { // If the player has a city on the vertex
                         std::string resourceType = board.meshushe[i].resourceType;
+                        // Add the resource to the player
                         if (resourceType == "wood") {
                             tempPlayer->resources.wood += 2;
                             hasCity = false;
@@ -100,57 +101,57 @@ void Player::printPoints() {
 }
 
 void Player::throwHalf() {  
-    //count the number of resources
+    // count the number of resources
     int wood_count = this->resources.wood;
     int brick_count = this->resources.brick;
     int sheep_count = this->resources.sheep;
     int wheat_count = this->resources.wheat;
     int stone_count = this->resources.stone;
 
-    int num = (wood_count + brick_count + sheep_count + wheat_count + stone_count) / 2;
-    if(this->resources.wood >0){
-        if(wood_count > num){
-            this->resources.wood -= num;
+    int num = (wood_count + brick_count + sheep_count + wheat_count + stone_count) / 2; // the number of resources to throw
+    if(this->resources.wood >0){ // check if the player has wood
+        if(wood_count > num){ // check if the number of wood is bigger than the number of resources to throw
+            this->resources.wood -= num; // throw the resources
             return;
         }else{
-            num -= wood_count;
-            this->resources.wood = 0;
+            num -= wood_count; // if the number of wood is smaller than the number of resources to throw
+            this->resources.wood = 0; // throw all the wood
         }
     }
-    if(this->resources.brick >0){
-        if(brick_count > num){
-            this->resources.brick -= num;
+    if(this->resources.brick >0){ // check if the player has brick
+        if(brick_count > num){ // check if the number of brick is bigger than the number of resources to throw
+            this->resources.brick -= num; // throw the resources
             return;
         }else{
-            num -= brick_count;
-            this->resources.brick = 0;
+            num -= brick_count; // if the number of brick is smaller than the number of resources to throw
+            this->resources.brick = 0; // throw all the brick
         }
     }
-    if(this->resources.sheep >0){
-        if(sheep_count > num){
-            this->resources.sheep -= num;
+    if(this->resources.sheep >0){ // check if the player has sheep
+        if(sheep_count > num){ // check if the number of sheep is bigger than the number of resources to throw
+            this->resources.sheep -= num; // throw the resources
             return;
         }else{
-            num -= sheep_count;
-            this->resources.sheep = 0;
+            num -= sheep_count; // if the number of sheep is smaller than the number of resources to throw
+            this->resources.sheep = 0; // throw all the sheep
         }
     }
-    if(this->resources.wheat >0){
-        if(wheat_count > num){
-            this->resources.wheat -= num;
+    if(this->resources.wheat >0){ // check if the player has wheat
+        if(wheat_count > num){ // check if the number of wheat is bigger than the number of resources to throw
+            this->resources.wheat -= num; // throw the resources
             return;
         }else{
-            num -= wheat_count;
-            this->resources.wheat = 0;
+            num -= wheat_count; // if the number of wheat is smaller than the number of resources to throw
+            this->resources.wheat = 0; // throw all the wheat
         }
     }
-    if(this->resources.stone >0){
-        if(stone_count > num){
-            this->resources.stone -= num;
+    if(this->resources.stone >0){ // check if the player has stone
+        if(stone_count > num){ // check if the number of stone is bigger than the number of resources to throw
+            this->resources.stone -= num; // throw the resources
             return;
         }else{
-            num -= stone_count;
-            this->resources.stone = 0;
+            num -= stone_count; // if the number of stone is smaller than the number of resources to throw
+            this->resources.stone = 0; // throw all the stone
         }
     }
 }
@@ -164,9 +165,9 @@ int Player::getPointsOfPlayer() const {
 }
 
 std::vector<Vertex> Player::placeSettlement(Board& board, int index) {  
-    board.setVertex(index);                                             
-    settelmentBuy.push_back(index);                                     
-    pointsOfPlayer += 1;                                                
+    board.setVertex(index); // Set the vertex as a settlement                                      
+    settelmentBuy.push_back(index); // Add the settlement to the list of settlements                                  
+    pointsOfPlayer += 1; // Add a point to the player                                           
     resources.brick -= 1;                                               
     resources.wood -= 1;
     resources.sheep -= 1;
@@ -183,7 +184,7 @@ std::vector<Vertex> Player::placeCity(Board& board, int index) {
     }
 
     settelmentBuy.erase(it);  // Remove the settlement from the list of settlements
-    board.setVertex(index);
+    board.setVertex(index); // Set the vertex as a city
     cityBuy.push_back(index);  // Add the city to the list of cities
     pointsOfPlayer += 1;       // Add a point to the player
     resources.wheat -= 2;

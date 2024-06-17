@@ -28,8 +28,8 @@ class Board
     void placeSettlement(int vertexIndex); // Place the settlement on the board
     void placeCity(int vertexIndex); // Place the city o the board
     void placeRoad(int edgeIndex); // Place the road on the board
-    void setVertex(int placeNum); // Set the vertex to the color of the player
+    void setVertex(int placeNum); // Set the vertex 
 
-    void setEdge(int placeNum); // Set the edge to the color of the player
+    void setEdge(int placeNum); // Set the edge 
 
 };

@@ -4,8 +4,8 @@
 
 class Edge{
     private:
-        int id; // Every edge has a number
-        std::string resourceType; // Every edge has a resource type
+        int id; // Id of the edge
+        std::string resourceType; // Resource type of the edge
 
     public:
         std::vector<int> edge_neighbor_edge; // Each edge has neighbor edge
@@ -26,7 +26,7 @@ class Edge{
         this->id = id;
     }
     
-    Edge(int edgeId, const std::vector<int>& edgeNeighbors, const std::vector<int>& vertexNeighbors): 
-        id(edgeId), edge_neighbor_edge(edgeNeighbors), edge_neighbor_vertex(vertexNeighbors), owner(-1) {
-    }
+    // Edge(int edgeId, const std::vector<int>& edgeNeighbors, const std::vector<int>& vertexNeighbors): 
+    //     id(edgeId), edge_neighbor_edge(edgeNeighbors), edge_neighbor_vertex(vertexNeighbors), owner(-1) {
+    // }
 };

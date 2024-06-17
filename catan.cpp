@@ -13,7 +13,6 @@ std::string Catan::firstPlayer(){
     return players[0].getPlayerName();
 }
 
-
 void Catan::printWinner(){
     int pointP1 = players[0].getPointsOfPlayer();
     int pointP2 = players[1].getPointsOfPlayer();

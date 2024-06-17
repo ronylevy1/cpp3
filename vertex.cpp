@@ -34,7 +34,6 @@ std::string Vertex::getResourceType() const{
     return resourceType;
 }
 
-
 void Vertex::setId(int vertexId){
     id = vertexId;
 }
