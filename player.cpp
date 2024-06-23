@@ -11,6 +11,7 @@
 #include "meshushe.hpp"
 #include "resource.hpp"
 #include "vertex.hpp"
+#include "card.hpp"
 
 
 void Player::rollDice(std::vector<Player*>& players, Board& board) {
@@ -84,16 +85,66 @@ void Player::rollDice(std::vector<Player*>& players, Board& board) {
     }
 }
 
-// TODO
-void Player::endTurn() {
 
+void Player::endTurn() {
+    std::cout << playerName << " end his turn" << std::endl;
 }
 
-void Player::buyDevelopmentCard() {
+void Player::buyDevelopmentCard(std::vector<Player*>& players, Card* card) {
     resources.wheat -= 1;
     resources.sheep -= 1;
     resources.stone -= 1;
     std::cout << playerName << " buy a development card" << std::endl;
+    developCardsBuy.push_back(card);
+    // If the card is a victory card
+    if((*card).getType() == "victory") {
+        pointsOfPlayer += 1;
+    }
+
+    // If there is 2 type of knight cards
+    if(developCardsBuy.size() >= 2){
+        int count = 0;
+        for(Card* card1 : developCardsBuy) {
+            if((*card1).getType() == "knight") {
+                count++;
+            }
+        }
+        if(count == 2) {
+            pointsOfPlayer += 2;
+        }
+    }
+
+    // If the card is a monopoly card - raffle random resource and that resource from all the players
+    if((*card).getType() == "monopoly") {
+        std::vector<std::string> resources = {"wood", "brick", "sheep", "wheat", "stone"};
+        int randomIndex = rand() % 5;
+        std::string resource = resources[randomIndex];
+        for(Player* player : players) {
+            if(player->getPlayerName() != playerName) {
+                int amount = player->resources.getResourceAmount(resource);
+                player->resources.incrementResource(resource, -amount);
+                player->resources.incrementResource(resource, amount);
+            }
+        }
+    }
+
+    // If the card is a road building card - give the player the resources to build 2 roads
+    if((*card).getType() == "road building") {
+        resources.brick += 2;
+        resources.wood += 2;
+    }
+
+    // If the card is a year of plenty card - raffle random 2 resources and give them to the player
+    if((*card).getType() == "year of plenty") {
+        std::vector<std::string> resources = {"wood", "brick", "sheep", "wheat", "stone"};
+        int randomIndex1 = rand() % 5;
+        int randomIndex2 = rand() % 5;
+        std::string resource1 = resources[randomIndex1];
+        std::string resource2 = resources[randomIndex2];
+        std::cout << "The player got the resources: " << resource1 << " and " << resource2 << std::endl;
+        this->resources.incrementResource(resource1, 1);
+        this->resources.incrementResource(resource2, 1);
+    }
 }
 
 void Player::printPoints() {
@@ -109,7 +160,7 @@ void Player::throwHalf() {
     int stone_count = this->resources.stone;
 
     int num = (wood_count + brick_count + sheep_count + wheat_count + stone_count) / 2; // the number of resources to throw
-    if(this->resources.wood >0){ // check if the player has wood
+    if(this->resources.wood > 0){ // check if the player has wood
         if(wood_count > num){ // check if the number of wood is bigger than the number of resources to throw
             this->resources.wood -= num; // throw the resources
             return;
@@ -118,7 +169,7 @@ void Player::throwHalf() {
             this->resources.wood = 0; // throw all the wood
         }
     }
-    if(this->resources.brick >0){ // check if the player has brick
+    if(this->resources.brick > 0){ // check if the player has brick
         if(brick_count > num){ // check if the number of brick is bigger than the number of resources to throw
             this->resources.brick -= num; // throw the resources
             return;
@@ -127,7 +178,7 @@ void Player::throwHalf() {
             this->resources.brick = 0; // throw all the brick
         }
     }
-    if(this->resources.sheep >0){ // check if the player has sheep
+    if(this->resources.sheep > 0){ // check if the player has sheep
         if(sheep_count > num){ // check if the number of sheep is bigger than the number of resources to throw
             this->resources.sheep -= num; // throw the resources
             return;
@@ -136,7 +187,7 @@ void Player::throwHalf() {
             this->resources.sheep = 0; // throw all the sheep
         }
     }
-    if(this->resources.wheat >0){ // check if the player has wheat
+    if(this->resources.wheat > 0){ // check if the player has wheat
         if(wheat_count > num){ // check if the number of wheat is bigger than the number of resources to throw
             this->resources.wheat -= num; // throw the resources
             return;
@@ -145,7 +196,7 @@ void Player::throwHalf() {
             this->resources.wheat = 0; // throw all the wheat
         }
     }
-    if(this->resources.stone >0){ // check if the player has stone
+    if(this->resources.stone > 0){ // check if the player has stone
         if(stone_count > num){ // check if the number of stone is bigger than the number of resources to throw
             this->resources.stone -= num; // throw the resources
             return;
@@ -222,7 +273,7 @@ void Player::trade(Player& tradeWith, std::string resourceGive, int amountGive, 
         return;
     }
 
-    // Execute the trade: deduct the resources from the current player and add to the other player
+    // Take the resources from the current player and give to the other player
     if (resourceGive == "wood") this->resources.wood -= amountGive;
     if (resourceGive == "brick") this->resources.brick -= amountGive;
     if (resourceGive == "sheep") this->resources.sheep -= amountGive;
@@ -235,7 +286,7 @@ void Player::trade(Player& tradeWith, std::string resourceGive, int amountGive, 
     if (resourceGet == "wheat") this->resources.wheat += amountGet;
     if (resourceGet == "stone") this->resources.stone += amountGet;
 
-    // Execute the trade for the other player: add the resources from the current player and deduct from the other player
+    // Take the resources from the other player and give to the current player
     if (resourceGive == "wood") tradeWith.resources.wood += amountGive;
     if (resourceGive == "brick") tradeWith.resources.brick += amountGive;
     if (resourceGive == "sheep") tradeWith.resources.sheep += amountGive;
@@ -251,3 +302,8 @@ void Player::trade(Player& tradeWith, std::string resourceGive, int amountGive, 
     std::cout << "Trade was successful" << std::endl;
 }
 
+
+Card* Player::randomCard(std::vector<Card*>& listCard) {
+    int randomIndex = rand() % listCard.size(); // Get a random index
+    return listCard[randomIndex]; // Return the card
+}

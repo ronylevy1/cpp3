@@ -1,3 +1,4 @@
+// Roniki04@gmail.com
 #pragma once
 
 #include <vector>
@@ -20,6 +21,7 @@ class Board
         initialize();
         defineEdgeAndVertex();
     }
+
     void printBoard(); // Print the board
     void initialize(); // Initialize the board
     void defineEdgeAndVertex(); // Define the edge and vertex
@@ -29,7 +31,6 @@ class Board
     void placeCity(int vertexIndex); // Place the city o the board
     void placeRoad(int edgeIndex); // Place the road on the board
     void setVertex(int placeNum); // Set the vertex 
-
     void setEdge(int placeNum); // Set the edge 
 
 };

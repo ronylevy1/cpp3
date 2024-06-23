@@ -58,6 +58,7 @@ void Board::printBoard() {
 
 void Board::initialize(){
     std::string resource[19] = {"stone","sheep","wood", "wheat","brick","sheep","brick","wheat","wood", "desert", "wood", "stone","wood", "stone","wheat", "sheep", "brick", "wheat", "sheep"};
+   
     // Define the meshushe of the board
     Vertex vertices1[6] = {
         Vertex(0), Vertex(1), Vertex(2), Vertex(8), Vertex(9), Vertex(10)
@@ -157,7 +158,6 @@ void Board::initialize(){
     meshushe[18] = mesh19;
     
 }
-
 
 void Board::defineEdgeAndVertex(){
     // Define the neighbor of every edge
@@ -422,9 +422,8 @@ void Board::defineEdgeAndVertex(){
 
 }
 
-
 bool Board::isEdgeEmpth(int edgeIndex) const{
-    return boardedge[edgeIndex].isEmpty;
+    return boardedge[edgeIndex].isEmpty; 
 }
 
 bool Board::isVertexEmpty(int vertexIndex) const{
@@ -432,19 +431,19 @@ bool Board::isVertexEmpty(int vertexIndex) const{
 }
 
 void Board::placeSettlement(int vertexIndex){
-    if(isVertexEmpty(vertexIndex)){
-        boardVertex[vertexIndex].placeSettlement();
+    if(isVertexEmpty(vertexIndex)){ 
+        boardVertex[vertexIndex].placeSettlement(); // Place the settlement
     } else {
         std::cout << "Cannot place settlement here. Vertex is not empty.\n" << std::endl;
     }
 }
 
 void Board::placeCity(int vertexIndex){
-    boardVertex[vertexIndex].placeCity();
+    boardVertex[vertexIndex].placeCity(); // Place the city
 }
 
 void Board::placeRoad(int edgeIndex){
-    boardedge[edgeIndex].placeRoad();
+    boardedge[edgeIndex].placeRoad(); // Place the road
 }
 
 void Board::setVertex(int placeNum){

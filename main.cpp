@@ -1,60 +1,18 @@
-
+// Roniki04@gmail.com
 #include <iostream>
 #include <string>
 
 #include "board.hpp"
 #include "catan.hpp"
 #include "player.hpp"
+#include "card.hpp"
+#include "knightCard.hpp"
+#include "victoryPointCard.hpp"
+#include "promotionCard.hpp"
 
 using namespace std;
 
-void test() {
-    // Create a player
-    Player player1("Player1");
-    Player player2("Player2");
-    Player player3("Player3");
-    Player* player11 = &player1;
-    Player* player22 = &player2;
-    Player* player33 = &player3;
-
-    Catan catan(player1, player2, player3);
-
-    // Create a board
-    Board board;
-    board.printBoard();
-    // Create a vector of players
-    std::vector<Player*> players;
-    // Add the player to the vector
-    players.push_back(player11);
-    players.push_back(player22);
-    players.push_back(player33);
-    srand(3);
-    // player place settlement in v:41
-    player1.resources.wood = 1;
-    player1.resources.brick = 1;
-    player1.resources.sheep = 1;
-    player1.resources.wheat = 1;
-        std::cout << "Player1 resources - wood: " << players[0]->resources.wood << ", brick: " << players[0]->resources.brick << ", sheep: " << players[0]->resources.sheep << ", wheat: " << players[0]->resources.wheat << ", stone: " << players[0]->resources.stone << std::endl;
-    std::cout << "Player2 resources - wood: " << players[1]->resources.wood << ", brick: " << players[1]->resources.brick << ", sheep: " << players[1]->resources.sheep << ", wheat: " << players[1]->resources.wheat << ", stone: " << players[1]->resources.stone << std::endl;
-    std::cout << "Player3 resources - wood: " << players[2]->resources.wood << ", brick: " << players[2]->resources.brick << ", sheep: " << players[2]->resources.sheep << ", wheat: " << players[2]->resources.wheat << ", stone: " << players[2]->resources.stone << std::endl;
-
-    player1.placeSettlement(board, 41);
-    player1.rollDice(players, board);
-    std::cout << "Player1 resources - wood: " << players[0]->resources.wood << ", brick: " << players[0]->resources.brick << ", sheep: " << players[0]->resources.sheep << ", wheat: " << players[0]->resources.wheat << ", stone: " << players[0]->resources.stone << std::endl;
-    std::cout << "Player2 resources - wood: " << players[1]->resources.wood << ", brick: " << players[1]->resources.brick << ", sheep: " << players[1]->resources.sheep << ", wheat: " << players[1]->resources.wheat << ", stone: " << players[1]->resources.stone << std::endl;
-    std::cout << "Player3 resources - wood: " << players[2]->resources.wood << ", brick: " << players[2]->resources.brick << ", sheep: " << players[2]->resources.sheep << ", wheat: " << players[2]->resources.wheat << ", stone: " << players[2]->resources.stone << std::endl;
-
-    //
-    // print all the vertexes of
-    // for (int i = 0; i < 6; i++) {
-    //     std::cout << board.meshushe[0].vertex[i].getId() << std::endl;
-    // }
-
-}
-
 int main() {
-    // test();
-    // return 0;
 
     // Create a player
     Player player1("Player1");
@@ -81,6 +39,27 @@ int main() {
         std::cout << player->getPlayerName() << " ";
     }
     std::cout << std::endl;
+
+    // There is 13 cards in the game
+    Card* card1 = new VictoryPointCard("Victory Point");
+    VictoryPointCard* card2 = new VictoryPointCard("Victory Point");
+    VictoryPointCard* card3 = new VictoryPointCard("Victory Point");
+    VictoryPointCard* card4 = new VictoryPointCard("Victory Point");
+
+    KnightCard* card5 = new KnightCard("Knight");
+    KnightCard* card6 = new KnightCard("Knight");
+    Card* card7 = new KnightCard("Knight");
+
+    PromotionCard* card8 = new monopolyCard("Promotion");
+    PromotionCard* card9 = new monopolyCard("Promotion");
+
+    PromotionCard* card10 = new buildRoadCard("Promotion");
+    PromotionCard* card11 = new buildRoadCard("Promotion");
+
+    PromotionCard* card12 = new plentyYearCard("Promotion");
+    PromotionCard* card13 = new plentyYearCard("Promotion");  
+
+    std::vector<Card*> listOfCard = {card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12, card13};
 
     player1.resources.wood = 4;
     player1.resources.brick = 4;
@@ -158,12 +137,12 @@ int main() {
 
     // The third player
     player3.rollDice(players, board);  // 6
-    player3.buyDevelopmentCard();
+    Card* tempCard = player3.randomCard(listOfCard);
+    player3.buyDevelopmentCard(players, tempCard);
     player3.endTurn();
 
     // The first player
     player1.rollDice(players, board);  // 6      
-
     player1.trade(player2, "brick", 1, "wheat", 1);
     player1.placeSettlement(board, 19);
     player1.endTurn();
@@ -176,8 +155,6 @@ int main() {
     // The third player
     player3.rollDice(players, board);  // 5
     player3.endTurn();
-
-
 
     std::cout << "Player1 resources - wood: " << players[0]->resources.wood << ", brick: " << players[0]->resources.brick << ", sheep: " << players[0]->resources.sheep << ", wheat: " << players[0]->resources.wheat << ", stone: " << players[0]->resources.stone << std::endl;
     std::cout << "Player2 resources - wood: " << players[1]->resources.wood << ", brick: " << players[1]->resources.brick << ", sheep: " << players[1]->resources.sheep << ", wheat: " << players[1]->resources.wheat << ", stone: " << players[1]->resources.stone << std::endl;

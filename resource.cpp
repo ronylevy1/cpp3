@@ -2,7 +2,7 @@
     #include <string>
     #include "resource.hpp"
 
-int Resource::getResourceAmount(const std::string& resourceType) const {
+int Resource::getResourceAmount(const std::string& resourceType) const { 
     if (resourceType == "wood") {
         return wood;
     } else if (resourceType == "brick") {

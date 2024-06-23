@@ -1,3 +1,4 @@
+// Roniki04@gmail.com
 #pragma once
 #include <string>
 #include <vector>
@@ -15,7 +16,6 @@ class Edge{
         bool isEmpty; // At the start of the game, all edges are empty. If you sit on them during the game, the sign changes
 
         bool isRoad(); // Can i buy the roud ?
-
         void placeRoad(); // Place a road
 
         void setId(int edgeId); // Set the id of the edge
@@ -26,7 +26,4 @@ class Edge{
         this->id = id;
     }
     
-    // Edge(int edgeId, const std::vector<int>& edgeNeighbors, const std::vector<int>& vertexNeighbors): 
-    //     id(edgeId), edge_neighbor_edge(edgeNeighbors), edge_neighbor_vertex(vertexNeighbors), owner(-1) {
-    // }
 };

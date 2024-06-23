@@ -1,7 +1,7 @@
 #include "edge.hpp"
 
 bool Edge::isRoad(){
-    if(owner == -1){
+    if(owner == -1){ // If the edge has no owner, return true
         return true;
     }
     return false;
