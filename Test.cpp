@@ -138,6 +138,7 @@ TEST_CASE("test - printWinner") {
     CHECK(player1.getPointsOfPlayer() == 10);
 
     originalBuffer = std::cout.rdbuf(newBuffer.rdbuf()); // Redirect std::cout to newBuffer
+    newBuffer.str(""); 
     catan.printWinner();
     buf_data = newBuffer.str(); // Get the output
     std::cout.rdbuf(originalBuffer); // Reset std::cout
