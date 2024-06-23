@@ -1,3 +1,5 @@
+// Roniki04@gmail.com
+
 # README - משחק Catan
 
 ## חוקי המשחק שהגדרנו

@@ -1,4 +1,3 @@
-// TODO
 // Roniki04@gmail.com
 #include <iostream>
 #include <sstream>

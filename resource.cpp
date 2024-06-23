@@ -1,6 +1,8 @@
-    #include <iostream>
-    #include <string>
-    #include "resource.hpp"
+// Roniki04@gmail.com
+
+#include <iostream>
+#include <string>
+#include "resource.hpp"
 
 int Resource::getResourceAmount(const std::string& resourceType) const { 
     if (resourceType == "wood") {

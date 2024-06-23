@@ -1,3 +1,5 @@
+// Roniki04@gmail.com
+
 #include "card.hpp"
 
 void Card::use() {

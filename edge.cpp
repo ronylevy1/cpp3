@@ -1,3 +1,5 @@
+// Roniki04@gmail.com
+
 #include "edge.hpp"
 
 bool Edge::isRoad(){

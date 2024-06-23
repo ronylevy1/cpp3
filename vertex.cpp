@@ -1,3 +1,5 @@
+// Roniki04@gmail.com
+
 #include "vertex.hpp"
 
 bool Vertex::buySettelment(const Vertex& vertex){

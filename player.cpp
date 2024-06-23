@@ -1,3 +1,5 @@
+// Roniki04@gmail.com
+
 #include "player.hpp"
 
 #include <algorithm>  // for std::find
