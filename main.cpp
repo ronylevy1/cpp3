@@ -42,22 +42,22 @@ int main() {
 
     // There is 13 cards in the game
     Card* card1 = new VictoryPointCard("Victory Point");
-    VictoryPointCard* card2 = new VictoryPointCard("Victory Point");
-    VictoryPointCard* card3 = new VictoryPointCard("Victory Point");
-    VictoryPointCard* card4 = new VictoryPointCard("Victory Point");
+    Card* card2 = new VictoryPointCard("Victory Point");
+    Card* card3 = new VictoryPointCard("Victory Point");
+    Card* card4 = new VictoryPointCard("Victory Point");
 
-    KnightCard* card5 = new KnightCard("Knight");
-    KnightCard* card6 = new KnightCard("Knight");
+    Card* card5 = new KnightCard("Knight");
+    Card* card6 = new KnightCard("Knight");
     Card* card7 = new KnightCard("Knight");
 
-    PromotionCard* card8 = new monopolyCard("Promotion");
-    PromotionCard* card9 = new monopolyCard("Promotion");
+    Card* card8 = new monopolyCard("Promotion");
+    Card* card9 = new monopolyCard("Promotion");
 
-    PromotionCard* card10 = new buildRoadCard("Promotion");
-    PromotionCard* card11 = new buildRoadCard("Promotion");
+    Card* card10 = new buildRoadCard("Promotion");
+    Card* card11 = new buildRoadCard("Promotion");
 
-    PromotionCard* card12 = new plentyYearCard("Promotion");
-    PromotionCard* card13 = new plentyYearCard("Promotion");  
+    Card* card12 = new plentyYearCard("Promotion");
+    Card* card13 = new plentyYearCard("Promotion");  
 
     std::vector<Card*> listOfCard = {card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12, card13};
 
