@@ -1,5 +1,6 @@
 // Roniki04@gmail.com
 
+
 # README - משחק Catan
 
 ## חוקי המשחק שהגדרנו
@@ -129,3 +130,4 @@ use(): מפעילה את קלף נקודת הניצחון.
 monopolyCard, buildRoadCard, plentyYearCard:
 use(): מפעילה את קלפי הקידום הספציפיים.
 
+// נעזרתי בchatgpt
